@@ -1,0 +1,43 @@
+.posts-content {
+  margin: 50px auto;
+}
+
+.posts-content h3 {
+  font-weight: 600;
+}
+
+.posts-content .main-img {
+  height: 235px;
+  width: 372px;
+  border-radius: 10px;
+}
+
+.posts-flex-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.posts-flex-content img {
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+}
+
+.posts-flex-content div {
+  width: 75%;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .posts-content {
+    width: 90%;
+  }
+
+  .posts-content .main-img {
+    width: 100%;
+  }
+
+  .posts-flex-content div {
+    width: 65%;
+  }
+}

@@ -1,0 +1,36 @@
+.stories-main-container {
+  margin: 50px auto;
+}
+
+.stories-main-container hr {
+  margin: 30px 0;
+}
+
+.stories-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.stories-flex-subcontainer {
+  flex-basis: 30%;
+}
+
+.stories-flex-subcontainer h3 {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .stories-main-container {
+    width: 90%;
+  }
+
+  .stories-flex-container {
+    flex-direction: column;
+  }
+
+  .stories-flex-subcontainer {
+    flex-basis: unset;
+  }
+}

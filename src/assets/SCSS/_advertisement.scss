@@ -1,0 +1,13 @@
+.advt-container {
+  margin-top: 115px;
+  width: 23em;
+  height: 65em;
+  border: 1px solid black;
+  text-align: center;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .advt-container {
+    display: none;
+  }
+}

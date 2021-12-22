@@ -1,0 +1,45 @@
+.home-main-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.div-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.div-container .div-articles {
+  flex-basis: 68%;
+}
+
+.div-container .div-advt {
+  flex-basis: 30%;
+}
+
+p {
+  color: #908d8d;
+}
+
+span {
+  color: #404040;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .home-main-container {
+    width: 100%;
+  }
+
+  .div-container {
+    flex-direction: column;
+  }
+
+  .div-container .div-articles,
+  .div-container .div-advt {
+    flex-basis: unset;
+  }
+}

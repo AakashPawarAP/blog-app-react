@@ -1,28 +1,41 @@
-import React from "react";
-import Navigation from "./components/navigation";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import PageRenderer from "./page-renderer";
-import "./assets/SCSS/base.scss";
+// import React from "react";
+// import Navigation from "./components/navigation";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Navigate,
+// } from "react-router-dom";
+// import PageRenderer from "./page-renderer";
+// import "./assets/SCSS/base.scss";
+// import "./App.css";
+// import Avatar from "@mui/material/Avatar";
+
+// function App() {
+//   return (
+//     <Router>
+//       <div className="App">
+//         <Navigation />
+//         <Routes>
+//           <Route path="/:page" component={PageRenderer} />
+//           <Route path="/" render={() => <Navigate to="/home" />} />
+//           <Route component={() => 404} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+import Main from "./components/main";
 import "./App.css";
-import Avatar from "@mui/material/Avatar";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navigation />
-        <Routes>
-          <Route path="/:page" component={PageRenderer} />
-          <Route path="/" render={() => <Navigate to="/home" />} />
-          <Route component={() => 404} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Main />
+    </div>
   );
 }
 
