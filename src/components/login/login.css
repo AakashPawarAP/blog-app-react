@@ -1,40 +1,18 @@
-.register-container {
-  width: 200px;
+.login-container {
+  background-color: rgb(245, 248, 248);
+  margin: 40px auto;
+  width: 80%;
   text-align: center;
+  border: 2px solid black;
 }
 
-.register-container {
-  padding: 10px 20px;
-  width: 30%;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 0 24px gray;
-  border-radius: 15px;
+.btn-lr {
+  width: 150px;
+  font-size: 20px;
+  background-color: rgba(4, 30, 43, 0.979);
+  color: white;
 }
 
-h3 {
-  font-size: 30px;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.input {
-  width: 100%;
-  margin: 12px 0;
-}
-
-.btn {
-  width: 100%;
-  margin: 10px 0;
-}
-
-.span {
+.btn-lr:hover {
   cursor: pointer;
-}
-
-@media screen and (min-width: 300px) and (max-width: 600px) {
-  .register-container {
-    width: 80%;
-    margin-top: 100px;
-  }
 }
