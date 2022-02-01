@@ -1,182 +1,79 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// // import { Avatar } from "antd";
-// // import Avatar from "antd/lib/avatar/avatar";
-// // import "./App.css";
-// import Avatar from "@mui/material/Avatar";
-// import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-// import { HiMenu, HiOutlineX } from "react-icons/hi";
+import React, { useState, createRef } from "react";
+import { withRouter } from "react-router-dom";
+import icon from "../assets/images/bar.png";
+function Header(prop) {
+  // const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("login"));
+  let isLoggedIn = localStorage.getItem("login");
+  // console.log(isLoggedIn);
+  const navLinks = (comp) => {
+    if (isLoggedIn === "true") prop.history.push(comp);
+    else prop.history.push("/");
+    // console.log(comp.split("/")[2]);
+    if (window.innerWidth < 700) {
+      toggler();
+    }
+  };
+  // console.log(window.innerWidth);
 
-// const navLinks = [
-//   {
-//     title: "Home",
-//     path: "./",
-//   },
-//   {
-//     title: "Bollywood",
-//     path: "./bollywood",
-//   },
-//   {
-//     title: "Hollwood",
-//     path: "./hollywood",
-//   },
-//   {
-//     title: "Technology",
-//     path: "./technology",
-//   },
-//   {
-//     title: "Fitness",
-//     path: "./fitness",
-//   },
-//   {
-//     title: "Food",
-//     path: "./food",
-//   },
-//   {
-//     title: "Login/Signup",
-//     path: "./login-signup",
-//   },
-// ];
+  let refNav = createRef(null);
+  let [navVisible, setNavVisible] = useState(false);
 
-// export default function Navigation() {
-//   const [menuActive, setMenuActive] = useState(false);
-//   return (
-//     <nav className="site-navigation">
-//       <span className="menu-title">
-//         <h3>The</h3>
-//         <h1>Siren</h1>
-//         {/* </span>
-//       <div className="menu-content-container"> */}
-//       </span>
-//       <ul className={menuActive ? "nav-links-responsive" : "nav-links"}>
-//         {navLinks.map((link, index) => (
-//           <li key={index}>
-//             <Link to={link.path}>{link.title}</Link>
-//           </li>
-//         ))}
-//       </ul>
-//       {/* <span>
-//         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-//       </span> */}
+  let toggler = () => {
+    // console.log(navVisible);
+    if (navVisible) {
+      refNav.current.style.display = "none";
+      setNavVisible(() => {
+        return !navVisible;
+      });
+    } else {
+      refNav.current.style.display = "block";
+      setNavVisible(() => {
+        return !navVisible;
+      });
+    }
+  };
 
-//       <div className="menu-btn" onClick={() => setMenuActive(!menuActive)}>
-//         {menuActive ? <HiOutlineX /> : <HiMenu />}
-//       </div>
-//     </nav>
-//   );
-// }
-
-// import { useState } from "react";
-// import "../assets/SCSS/navigation.css";
-// import { HiMenu, HiOutlineX } from "react-icons/hi";
-// import { NavLink } from "react-router-dom";
-
-// const Navigation = () => {
-//   const [showNavLinks, setShowNavLinks] = useState(false);
-//   let navlinks = [
-//     { catagory: "Home", to: "" },
-//     { catagory: "Bollywood", to: "bollywood" },
-//     { catagory: "Technology", to: "technology" },
-//     { catagory: "Hollywod", to: "hollywood" },
-//     { catagory: "Fitness", to: "fitness" },
-//     { catagory: "Food", to: "food" },
-//     {},
-//   ];
-
-//   return (
-//     <div className="navbar-container">
-//       <div className="logo">
-//         <h4>The</h4>
-//         <h1>Siren</h1>
-//       </div>
-//       <ul className={showNavLinks ? "nav-links-mobile" : "nav-links"}>
-//         {navlinks.map((item, index) => {
-//           return (
-//             <li>
-//               <NavLink
-//                 key={index}
-//                 to={`/${item.to}`}
-//                 activeClassName="active"
-//                 exact
-//               >
-//                 {item.catagory}
-//               </NavLink>
-//             </li>
-//           );
-//         })}
-//         <NavLink to="/register">
-//           <li className="button">Login/Signup</li>
-//         </NavLink>
-//       </ul>
-//       <div className="menu-btn" onClick={() => setShowNavLinks(!showNavLinks)}>
-//         {showNavLinks ? <HiOutlineX /> : <HiMenu />}
-//       </div>
-//       <hr />
-//     </div>
-//   );
-// };
-
-// export default Navigation;
-
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-// import { Avatar } from "antd";
-// import Avatar from "antd/lib/avatar/avatar";
-// import "./App.css";
-import Avatar from "@mui/material/Avatar";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { HiMenu, HiOutlineX } from "react-icons/hi";
-
-const Navigation = () => {
-  const [menuActive, setMenuActive] = useState(false);
-
-  const navlinks = [
-    { catagory: "Home", to: "" },
-    { catagory: "Bollywood", to: "bollywood" },
-    { catagory: "Technology", to: "technology" },
-    { catagory: "Hollywod", to: "hollywood" },
-    { catagory: "Fitness", to: "fitness" },
-    { catagory: "Food", to: "food" },
-    {},
-  ];
-
+  const logOut = (path) => {
+    localStorage.setItem("login", "false");
+    isLoggedIn = localStorage.getItem("login");
+    // setIsLoggedIn(localStorage.getItem("login"));
+    prop.history.push(path);
+  };
   return (
-    <nav className="site-navigation">
-      <span className="menu-title">
-        <h3>The</h3>
-        <h1>Siren</h1>
-        {/* </span>
-       <div className="menu-content-container"> */}
-      </span>
-      <ul className={menuActive ? "nav-links-responsive" : "nav-links"}>
-        {navlinks.map((item, index) => {
-          return (
-            <li>
-              <NavLink
-                key={index}
-                to={`/${item.to}`}
-                activeClassName="active"
-                exact
-              >
-                {item.catagory}
-              </NavLink>
-            </li>
-          );
-        })}
-        <NavLink to="/register">
-          <li className="button">Login/Signup</li>
-        </NavLink>
-      </ul>
-      {/* <span>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-       </span> */}
-      <div className="menu-btn" onClick={() => setMenuActive(!menuActive)}>
-        {menuActive ? <HiOutlineX /> : <HiMenu />}
+    <>
+      <div className="header">
+        <div className="header-the">The</div>
+        <div className="header-siren">Siren</div>
+        <span className="toggle" onClick={toggler}>
+          <img className="icon" src={icon} alt="icon" />
+        </span>
       </div>
-      <hr />
-    </nav>
-  );
-};
+      <div className="nav-links">
+        <ul>
+          {/* {navVisible ? */}
+          <div
+            ref={refNav}
+            className="nav-link-container"
+            id="nav-link-container"
+          >
+            <li onClick={() => navLinks("/home")}>Home</li>
+            <li onClick={() => navLinks("/category/bollywood")}>Bollywood</li>
+            <li onClick={() => navLinks("/category/technology")}>Technology</li>
+            <li onClick={() => navLinks("/category/hollywood")}>Hollywood</li>
+            <li onClick={() => navLinks("/category/fitness")}>Fitness</li>
+            <li onClick={() => navLinks("/category/food")}>Food</li>
+            {isLoggedIn === "false" ? (
+              <li onClick={() => navLinks("/")}>Login/Register</li>
+            ) : (
+              <li onClick={() => logOut("/")}>Logout</li>
+            )}
+          </div>
+          {/* : null} */}
+        </ul>
+      </div>
 
-export default Navigation;
+      <hr className="header-hr" />
+    </>
+  );
+}
+export default withRouter(Header);

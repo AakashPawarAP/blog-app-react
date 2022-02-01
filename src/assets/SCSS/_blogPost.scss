@@ -1,0 +1,35 @@
+.container-blog {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  box-shadow: 1px 1px 10px 1px;
+  padding: 15px;
+}
+
+.bimg {
+  width: 100%;
+}
+
+h4 {
+  display: inline;
+}
+
+.suggested-articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 360px) and (max-width: 700px) {
+  .container-blog {
+    margin-top: 5%;
+    margin-left: 3%;
+    margin-right: 50%;
+    box-shadow: 1px 1px 10px 1px;
+    padding: 15px;
+    width: 80%;
+  }
+  .bimg {
+    width: 300px;
+  }
+}
