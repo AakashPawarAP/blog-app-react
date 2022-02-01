@@ -12,7 +12,7 @@ function LatestArticle(props) {
       // .then((res) => {
       axios
         .post(
-          "https://https://blog-app--backend.herokuapp.com/api/v1/homeArticles/"
+          "https://https://blog-app--backend.herokuapp.com/api/v1/home-articles/"
         )
         .then((res) => {
           setArt(res.data);
