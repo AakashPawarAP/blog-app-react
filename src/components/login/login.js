@@ -52,7 +52,7 @@ const Login = () => {
       />
       <br />
       <br />
-      password :{" "}
+      Password :{" "}
       <input
         type="password"
         onChange={(t) => setPassword(t.target.value)}
